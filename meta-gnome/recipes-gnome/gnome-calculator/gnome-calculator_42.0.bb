@@ -26,7 +26,7 @@ inherit gnomebase gobject-introspection gnome-help vala gtk-icon-cache gettext f
 def gnome_verdir(v):
     return oe.utils.trim_version(v, 1)
 
-REQUIRED_DISTRO_FEATURES = "x11"
+REQUIRED_DISTRO_FEATURES = "x11 opengl"
 
 SRC_URI[archive.sha256sum] = "a535a14ebea58e691a4b5a085256aed060a2c3f07384ac3a3d01832332a27e4a"
 
