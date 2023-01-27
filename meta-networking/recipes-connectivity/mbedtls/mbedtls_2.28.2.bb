@@ -42,3 +42,9 @@ PACKAGES =+ "${PN}-programs"
 FILES:${PN}-programs = "${bindir}/"
 
 BBCLASSEXTEND = "native nativesdk"
+
+# Export source files/headers needed by Arm Trusted Firmware
+sysroot_stage_all:append() {
+	sysroot_stage_dir "${S}/library" "${SYSROOT_DESTDIR}/usr/share/mbedtls-source/library"
+	sysroot_stage_dir "${S}/include" "${SYSROOT_DESTDIR}/usr/share/mbedtls-source/include"
+}
