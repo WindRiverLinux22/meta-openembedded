@@ -22,6 +22,10 @@ SRC_URI = "${SAMBA_MIRROR}/stable/samba-${PV}.tar.gz \
            file://0005-samba-build-dnsserver_common-code.patch \
            file://0001-Fix-pyext_PATTERN-for-cross-compilation.patch \
            file://0001-smbtorture-skip-test-case-tfork_cmd_send.patch \
+           file://CVE-2022-1615.patch \
+           file://CVE-2022-42898.patch \
+           file://CVE-2022-44640-1.patch \
+           file://CVE-2022-44640-2.patch \
            "
 
 SRC_URI:append:libc-musl = " \
