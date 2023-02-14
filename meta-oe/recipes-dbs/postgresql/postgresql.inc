@@ -21,8 +21,6 @@ HOMEPAGE = "http://www.postgresql.com"
 LICENSE = "0BSD"
 DEPENDS = "libnsl2 readline tzcode-native"
 
-ARM_INSTRUCTION_SET = "arm"
-
 SRC_URI = "https://ftp.postgresql.org/pub/source/v${PV}/${BP}.tar.bz2 \
     file://postgresql.init \
     file://postgresql-profile \
