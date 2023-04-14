@@ -19,13 +19,14 @@ SRC_URI = "git://github.com/rhboot/grubby.git;protocol=https;;branch=master \
            file://run-ptest \
            file://0001-Add-another-variable-LIBS-to-provides-libraries-from.patch \
            file://0002-include-paths.h-for-_PATH_MOUNTED.patch \
+           file://0001-Honor-sbindir.patch \
            "
 
 RDEPENDS:${PN} += "dracut"
 
 inherit autotools-brokensep ptest
 
-EXTRA_OEMAKE = "-e 'CC=${CC}' 'LDFLAGS=${LDFLAGS}' LIBS='${LIBS}' 'PREFIX'=${@bb.utils.contains('DISTRO_FEATURES','usrmerge','/usr','',d)}"
+EXTRA_OEMAKE = "-e 'CC=${CC}' 'LDFLAGS=${LDFLAGS}' LIBS='${LIBS}'"
 
 LIBS:libc-musl = "-lexecinfo"
 LIBS ?= ""
