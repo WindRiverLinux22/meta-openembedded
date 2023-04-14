@@ -1,0 +1,42 @@
+From 8213616bfaccfd63e2add269cf6474f2d08bd60c Mon Sep 17 00:00:00 2001
+From: Peter Jones <pjones@redhat.com>
+Date: Mon, 18 Apr 2022 16:15:39 -0400
+Subject: [PATCH] Honor sbindir
+
+Signed-off-by: Peter Jones <pjones@redhat.com>
+Signed-off-by: Robbie Harwood <rharwood@redhat.com>
+
+Upstream-Status: Backport
+[https://github.com/rhboot/grubby/commit/8213616bfaccfd63e2add269cf6474f2d08bd60c]
+
+Signed-off-by: Yi Zhao <yi.zhao@windriver.com>
+---
+ Makefile | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 3f1d2ac..eb8b3d0 100644
+--- a/Makefile
++++ b/Makefile
+@@ -46,14 +46,14 @@ test: all
+ 	@./test.sh $(VERBOSE_TEST)
+ 
+ install: all
+-	mkdir -p $(DESTDIR)$(PREFIX)/sbin
++	mkdir -p $(DESTDIR)$(PREFIX)$(sbindir)
+ 	mkdir -p $(DESTDIR)/$(mandir)/man8
+-	install -m 755 new-kernel-pkg $(DESTDIR)$(PREFIX)/sbin
++	install -m 755 new-kernel-pkg $(DESTDIR)$(PREFIX)$(sbindir)
+ 	install -m 644 new-kernel-pkg.8 $(DESTDIR)/$(mandir)/man8
+-	install -m 755 installkernel $(DESTDIR)$(PREFIX)/sbin
++	install -m 755 installkernel $(DESTDIR)$(PREFIX)$(sbindir)
+ 	install -m 644 installkernel.8 $(DESTDIR)/$(mandir)/man8
+ 	if [ -f grubby ]; then \
+-		install -m 755 grubby $(DESTDIR)$(PREFIX)/sbin ; \
++		install -m 755 grubby $(DESTDIR)$(PREFIX)$(sbindir) ; \
+ 		install -m 644 grubby.8 $(DESTDIR)/$(mandir)/man8 ; \
+ 	fi
+ 
+-- 
+2.25.1
+
